@@ -28,53 +28,58 @@
 </style>
 
 
-## Downloads
-<a href="https://raw.githubusercontent.com/RMBDon/Lazy-Portal-v7-RMTheme-2/main/style.zip" download>Latest CSS</a> || 
-<a href="https://raw.githubusercontent.com/RMBDon/Lazy-Portal-v7-RMTheme-2/main/[OLD] - Last Version.zip" download>Old CSS</a> || 
-<a href="https://raw.githubusercontent.com/RMBDon/Lazy-Portal-v7-RMTheme-2/main/Downloads/Fonts/ElJekate.ttf" download>Font 1</a> || 
-<a href="https://raw.githubusercontent.com/RMBDon/Lazy-Portal-v7-RMTheme-2/main/Downloads/Fonts/Newon.ttf" download>Font 2</a> || 
-<a href="https://raw.githubusercontent.com/RMBDon/Lazy-Portal-v7-RMTheme-2/main/Downloads/Fonts/Walneo-Regular.ttf" download>Font 3</a> || 
-<a href="https://raw.githubusercontent.com/RMBDon/Lazy-Portal-v7-RMTheme-2/main/main-min/1/main-min.jpg" download>main-min (top)</a> || 
-<a href="https://raw.githubusercontent.com/RMBDon/Lazy-Portal-v7-RMTheme-2/main/main-min/2/main-min.jpg" download>main-min (whole)</a> || 
+## Redirect Captive Portal Only Download (password at the bottom)
+
+|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal.zip" download>Bypass captive portal</a> || 
+
+
+## Redirect Captive Portal w/ Messenger Download (password at the bottom)
+
+|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with Messenger.zip" download>Bypass captive portal with Messenger</a> ||
+
 
 
  ### Requirements
 
    - tawk.to account (Recommended for backup chat, failover)
         
-   - [Main-min canva Template 3 - Whole](https://www.canva.com/design/DAGJcFIqoeo/R7V45gM_zOol4vwTgUuuUQ/view?utm_content=DAGJcFIqoeo&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview)
+   - Group Page chat ID or Personal FB Account username (or ID) . Google niyo na lang pano kunin :)
 
+ ### Notice!
+
+   - enabling Messenger chat requires you to bypass messenger on walled garden (but with limited access, just enough for chat and send images)
 
 ## Instructions
 
 ### 1. Pick and download (login.html & status.html) options that you want (Redirect portal only, Redirect portal + Messenger Chat).
 
-### 2. Once downloaded, Open the login.html and change the needed values shown below.
+### 2. Once downloaded, Open the login.html and change the needed values shown below. (Ignore if Redirect Portal only)
 
+![Example Image](Parameters.png)
 
-
-
-
-
-
-### 3. Do the same with the status.html . Tip : just copy the settings from login.html
+### 3. Do the same with the status.html . Tip : just copy the settings from login.html (Ignore if Redirect Portal only)
 
 ### 4. Once finished, replace it with the existing files at `/hotspot/` or `/flash/hotspot/`
 
+### 5. Copy and paste this to you mikrotik terminal.
+         
+                -/ip hotspot walled-garden
+add dst-host=*facebook.com action=allow comment="fb messenger bypass"
+add dst-host=*connect.facebook.net action=allow comment="fb messenger bypass"
+add dst-host=*messenger.com action=allow comment="fb messenger bypass"
+add dst-host=*m.me action=allow comment="fb messenger bypass"
+add dst-host=*fna.fbcdn.net action=deny comment="fb messenger bypass"
+
+
+
+
 ### 5. Test and deploy.
-
-
-
-<div class="video-container">
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/9UqjX6hPj0k?autoplay=1&mute=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-</div>
 
 
 ---
 
 # If nagustuhan nyo boss, pangkape lang 🤣☕️ 09760049167  
+
 ## Maraming Salamat!
 
 ### zip password - lazy5491
