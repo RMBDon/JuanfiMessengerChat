@@ -11,7 +11,7 @@
   .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 177.78%; /* 16:9 aspect ratio (height / width) */
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width) */
   }
 
   .video-wrapper {
