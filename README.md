@@ -87,7 +87,7 @@
 
 ---
 
-## If nagustuhan nyo boss, pangkape lang 🤣☕️ 09760049167  
+## If nagustuhan nyo boss, pangkape lang 🤣☕️ `09760049167` 
 
 ---
 
@@ -95,7 +95,7 @@
 
 ---
 
-### zip password - lazy7821
+### zip password - `lazy7821`
 
 ---
 
