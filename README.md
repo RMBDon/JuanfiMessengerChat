@@ -63,18 +63,14 @@
 
 ### 5. Copy and paste this to you mikrotik terminal.
          
-                -/ip hotspot walled-garden
-add dst-host=*facebook.com action=allow comment="fb messenger bypass"
-add dst-host=*connect.facebook.net action=allow comment="fb messenger bypass"
-add dst-host=*messenger.com action=allow comment="fb messenger bypass"
-add dst-host=*m.me action=allow comment="fb messenger bypass"
-add dst-host=*fna.fbcdn.net action=deny comment="fb messenger bypass"
-
-
-
+    -/ip hotspot walled-garden
+    add dst-host=*facebook.com action=allow comment="fb messenger bypass"
+    add dst-host=*connect.facebook.net action=allow comment="fb messenger bypass"
+    add dst-host=*messenger.com action=allow comment="fb messenger bypass"
+    add dst-host=*m.me action=allow comment="fb messenger bypass"
+    add dst-host=*fna.fbcdn.net action=deny comment="fb messenger bypass"
 
 ### 5. Test and deploy.
-
 
 ---
 
