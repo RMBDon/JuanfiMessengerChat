@@ -37,12 +37,12 @@
 
 ## DOWNLOADS
 
-### Redirect Captive Portal Only Download (password at the bottom)
+### Redirect Captive Portal Only Download `(password at the bottom)`
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal.zip" download>Bypass captive portal</a> || 
 
 
-### Redirect Captive Portal w/ Messenger Download (password at the bottom)
+### Redirect Captive Portal w/ Messenger Download `(password at the bottom)`
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with Messenger.zip" download>Bypass captive portal with Messenger</a> ||
 
@@ -52,7 +52,7 @@
 
    - tawk.to account `(Recommended for backup chat, failover)`
         
-   - Group Page chat ID or Personal FB Account username (or ID) . `Google niyo na lang pano kunin :)`
+   - Group Page chat ID or Personal FB Account username `(or ID)` . `Google niyo na lang pano kunin :)`
 
 ---
 
@@ -87,7 +87,7 @@
 
 ---
 
-# If nagustuhan nyo boss, pangkape lang 🤣☕️ 09760049167  
+## If nagustuhan nyo boss, pangkape lang 🤣☕️ 09760049167  
 
 ---
 
