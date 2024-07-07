@@ -38,13 +38,13 @@
 
 
 
- ### Requirements
+### Requirements
 
    - tawk.to account (Recommended for backup chat, failover)
         
    - Group Page chat ID or Personal FB Account username (or ID) . Google niyo na lang pano kunin :)
 
- ### Notice!
+### Notice!
 
    - enabling Messenger chat requires you to bypass messenger on walled garden (but with limited access, just enough for chat and send images)
 
@@ -62,7 +62,7 @@
 
 ### 5. Copy and paste this to you mikrotik terminal.
          
-    -/ip hotspot walled-garden
+    /ip hotspot walled-garden
     add dst-host=*facebook.com action=allow comment="fb messenger bypass"
     add dst-host=*connect.facebook.net action=allow comment="fb messenger bypass"
     add dst-host=*messenger.com action=allow comment="fb messenger bypass"
