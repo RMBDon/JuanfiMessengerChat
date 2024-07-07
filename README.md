@@ -83,7 +83,7 @@
 
 ## Maraming Salamat!
 
-### zip password - lazy5491
+### zip password - lazy7821
 
 
 #### Also available customized Mikrotik Scripts (Failover Telegram Notification, Accurate Monthly/Yearly script Reset, Modified Telegram Notifications, )
