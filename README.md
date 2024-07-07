@@ -79,7 +79,9 @@
 
 ---
 
+
 # If nagustuhan nyo boss, pangkape lang 🤣☕️ 09760049167  
+
 
 ## Maraming Salamat!
 
@@ -90,6 +92,7 @@
 #### Other files that you might like
 
 <a href="https://rmbdon.github.io/Lazy-Portal-v7-RMTheme-2/" download> Lazy v7 - Adjustable Theme v2</a>
+
 
 #### Also available customized Mikrotik Scripts . Need remote (not 1 click install 😅) depende if available ang time.
 
