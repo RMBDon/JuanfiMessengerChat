@@ -3,7 +3,10 @@
   <div class="video-wrapper">
     <iframe src="https://www.youtube.com/embed/vllGGkFhSF4?autoplay=1&mute=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/w9SFjzVCnEo?autoplay=1&mute=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-wrapper2">
+    <iframe src="https://www.youtube.com/embed/vllGGkFhSF4?autoplay=1&mute=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="video-wrapper2">
+
   </div>
 </div>
 
@@ -14,7 +17,7 @@
     padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width) */
   }
 
-  .video-wrapper {
+  .video-wrapper,  .video-wrapper2 {
     position: absolute;
     top: 0;
     left: 0;
