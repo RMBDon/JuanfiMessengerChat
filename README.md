@@ -1,8 +1,7 @@
 
-
 <div class="video-container">
   <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/G_BOb4uyBSs?autoplay=1&mute=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/vllGGkFhSF4?autoplay=1&mute=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
 
@@ -39,13 +38,13 @@
 
 
 
- ### Requirements
+### Requirements
 
    - tawk.to account (Recommended for backup chat, failover)
         
    - Group Page chat ID or Personal FB Account username (or ID) . Google niyo na lang pano kunin :)
 
- ### Notice!
+### Notice!
 
    - enabling Messenger chat requires you to bypass messenger on walled garden (but with limited access, just enough for chat and send images)
 
@@ -63,18 +62,14 @@
 
 ### 5. Copy and paste this to you mikrotik terminal.
          
-                -/ip hotspot walled-garden
-add dst-host=*facebook.com action=allow comment="fb messenger bypass"
-add dst-host=*connect.facebook.net action=allow comment="fb messenger bypass"
-add dst-host=*messenger.com action=allow comment="fb messenger bypass"
-add dst-host=*m.me action=allow comment="fb messenger bypass"
-add dst-host=*fna.fbcdn.net action=deny comment="fb messenger bypass"
-
-
-
+    /ip hotspot walled-garden
+    add dst-host=*facebook.com action=allow comment="fb messenger bypass"
+    add dst-host=*connect.facebook.net action=allow comment="fb messenger bypass"
+    add dst-host=*messenger.com action=allow comment="fb messenger bypass"
+    add dst-host=*m.me action=allow comment="fb messenger bypass"
+    add dst-host=*fna.fbcdn.net action=deny comment="fb messenger bypass"
 
 ### 5. Test and deploy.
-
 
 ---
 
