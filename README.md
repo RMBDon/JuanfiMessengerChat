@@ -1,4 +1,4 @@
-
+# Auto Redirect Captive Portal + Redirect Messenger (w/ backup chat)
 <div class="video-container">
   <div class="video-wrapper">
     <iframe src="https://www.youtube.com/embed/vllGGkFhSF4?autoplay=1&mute=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -86,10 +86,28 @@
 ### zip password - lazy7821
 
 
-#### Also available customized Mikrotik Scripts (Failover Telegram Notification, Accurate Monthly/Yearly script Reset, Modified Telegram Notifications, )
+#### Also available customized Mikrotik Scripts . Need remote (not 1 click install 😅) depende if available ang time.
+
   - Failover Telegram Notification
+
     - Error Handling during Telegram outage (saved to backup in txt form)
+
   - Accurate Monthly/Yearly Script Reset
+
     - Exact day of the month reset (not 30days)
-  - Modified Telegram Format
-  -
+
+  - Auto reboot (based on # operating hours and user count)
+
+  - Modify onlogin/ onlogout script
+
+  - Modified Telegram Notifications
+
+    - Add system variables
+
+    - Change Format
+
+    - Notify node or interface down
+
+    - Notify internet is down
+
+  - Others
