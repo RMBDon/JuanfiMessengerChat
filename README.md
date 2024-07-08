@@ -101,7 +101,7 @@
 
 #### Other files that you might like
 
-<a href="https://rmbdon.github.io/Lazy-Portal-v7-RMTheme-2/" download> Lazy v7 - Adjustable Theme v2</a>
+<a href="https://rmbdon.github.io/Lazy-Portal-v7-RMTheme-2/"> Lazy v7 - Adjustable Theme v2</a>
 
 ---
 
