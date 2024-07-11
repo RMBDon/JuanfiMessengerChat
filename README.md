@@ -40,9 +40,9 @@
 ### Latest Version `(password at the bottom)`
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal.zip" download>Bypass captive portal</a> || 
----
+
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with Messenger.zip" download>Bypass captive portal with Messenger</a> ||
----
+
 
 ### Old Versions `(password at the bottom)`
 
