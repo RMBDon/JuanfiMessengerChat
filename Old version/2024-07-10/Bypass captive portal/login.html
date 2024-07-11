@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy V7 - Login</title> 
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<link rel="stylesheet" href="assets/css/style.css?v='+cachebust+'">');
+      document.write('<scr'+'ipt defer src="assets/js/config.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/pako.min.js?v='+cachebust+'"></scr'+'ipt>');
+    
+    <!-- Define variables first -->
+
+    var captivePortalAppUrl = "myapp://open";
+    var captivePortalWebUrl = "http://10.0.10.1/";
+    var checkUrl = "https://www.google.com"; // URL to check if behind captive portal
+    var redirectFlag = "captivePortalRedirected";
+    var redirectTimestamp = "captivePortalRedirectedTimestamp";
+    var flagValidDuration =   60 * 1000; //  60 seconds
+</script>
+    
+    <style>
+        #hiddenIframe {
+            display: none;
+        }
+    </style>
+    
+  </head>
+  <body>
+    <div id="toast"></div>
+    $(if chap-id)
+    <form
+      name="sendin"
+      action="$(link-login-only)"
+      method="post"
+      style="display: none"
+    >
+      <input type="hidden" name="username" />
+      <input type="hidden" name="password" />
+      <input type="hidden" name="dst" value="$(link-status)" />
+      <input type="hidden" name="popup" value="true" />
+    </form>
+    <script src="assets/core/md5.js"></script>
+    <script>
+      var Mac = '$(mac)';
+      var IpAddress = '$(ip)';
+      var LinkLogin = '$(link-login-only)';
+      var LinkStatus = '$(link-status)';
+      var LinkLogout = '$(link-logout)';
+      var InterfaceName = '$(interface-name)';
+      var ServerAddress = '$(server-address)';
+      var LoginError = '';
+      function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5(
+          '$(chap-id)' + document.login.password.value + '$(chap-challenge)'
+        );
+        document.sendin.submit();
+        return false;
+      }
+    </script>
+    $(endif) $(if error)
+    <script>
+      LoginError = '$(error)';
+    </script>
+    $(endif)
+
+    <div id="root"></div>
+
+    $(if trial == 'yes')
+    <div id="trial_button">
+      <a
+        href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+        >Free Trial</a
+      >
+    </div>
+    $(endif)
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<scr'+'ipt defer src="assets/core/core.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/main.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/navbar.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/header.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/login.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/footer.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+<script>function _0x1af8(){var _0x1cfc28=['8886migGUb','2UCGjVn','getItem','27718kjShSq','423861TYFcSn','href','body','catch','4086pGzgUH','2611Alusel','location','MSStream','then','test','createElement','toString','setItem','reload','8632bSzvDy','true','17358310sYlolw','display','1545924RvqXbG','getTime','DOMContentLoaded','3023535TYrKDD','userAgent','removeChild','iframe','Not\x20behind\x20captive\x20portal,\x20stopping\x20script.','addEventListener','log'];_0x1af8=function(){return _0x1cfc28;};return _0x1af8();}function _0x4218(_0x2c3c3e,_0x5c4c0c){var _0x1af80d=_0x1af8();return _0x4218=function(_0x4218d1,_0x52cffe){_0x4218d1=_0x4218d1-0x1be;var _0x5d81ca=_0x1af80d[_0x4218d1];return _0x5d81ca;},_0x4218(_0x2c3c3e,_0x5c4c0c);}var _0x225b70=_0x4218;(function(_0x4f5044,_0x4bbaa1){var _0x2c02e0=_0x4218,_0x2aa828=_0x4f5044();while(!![]){try{var _0x5abcab=parseInt(_0x2c02e0(0x1c4))/0x1*(parseInt(_0x2c02e0(0x1c2))/0x2)+-parseInt(_0x2c02e0(0x1c5))/0x3+parseInt(_0x2c02e0(0x1d7))/0x4+-parseInt(_0x2c02e0(0x1da))/0x5+parseInt(_0x2c02e0(0x1c1))/0x6*(-parseInt(_0x2c02e0(0x1ca))/0x7)+parseInt(_0x2c02e0(0x1d3))/0x8*(-parseInt(_0x2c02e0(0x1c9))/0x9)+parseInt(_0x2c02e0(0x1d5))/0xa;if(_0x5abcab===_0x4bbaa1)break;else _0x2aa828['push'](_0x2aa828['shift']());}catch(_0x298b57){_0x2aa828['push'](_0x2aa828['shift']());}}}(_0x1af8,0x5851d),document[_0x225b70(0x1bf)](_0x225b70(0x1d9),function(){var _0x1c7f34=_0x225b70;function _0x1db81e(){var _0xb32f30=_0x4218;return/iPad|iPhone|iPod/[_0xb32f30(0x1ce)](navigator['userAgent'])||/Mac/[_0xb32f30(0x1ce)](navigator[_0xb32f30(0x1db)])&&!window[_0xb32f30(0x1cc)];}function _0x384ee4(){var _0x13d9f3=_0x4218;return fetch(checkUrl,{'mode':'no-cors'})[_0x13d9f3(0x1cd)](()=>![])[_0x13d9f3(0x1c8)](()=>!![]);}var _0x3ac82b=localStorage[_0x1c7f34(0x1c3)](redirectTimestamp),_0x59f456=new Date()[_0x1c7f34(0x1d8)]();if(_0x3ac82b&&_0x59f456-_0x3ac82b<flagValidDuration){console[_0x1c7f34(0x1c0)]('Already\x20redirected\x20recently,\x20stopping\x20script.');return;}_0x384ee4()[_0x1c7f34(0x1cd)](_0x56abbb=>{var _0xdaf2d1=_0x1c7f34;if(!_0x56abbb){console[_0xdaf2d1(0x1c0)](_0xdaf2d1(0x1be));return;}if(_0x1db81e())window[_0xdaf2d1(0x1cb)][_0xdaf2d1(0x1c6)]=captivePortalWebUrl;else{var _0x27b87b=document[_0xdaf2d1(0x1cf)](_0xdaf2d1(0x1dd));_0x27b87b['style'][_0xdaf2d1(0x1d6)]='none',_0x27b87b['src']=captivePortalAppUrl,document[_0xdaf2d1(0x1c7)]['appendChild'](_0x27b87b),setTimeout(function(){var _0x2cf9c5=_0xdaf2d1;window['location']['href']=captivePortalWebUrl,document['body'][_0x2cf9c5(0x1dc)](_0x27b87b),location[_0x2cf9c5(0x1d2)]();},0x1388);}localStorage[_0xdaf2d1(0x1d1)](redirectFlag,_0xdaf2d1(0x1d4)),localStorage[_0xdaf2d1(0x1d1)](redirectTimestamp,_0x59f456[_0xdaf2d1(0x1d0)]());});}));</script>
+  </body>
+</html>

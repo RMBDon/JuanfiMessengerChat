@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy V7 - Login</title> 
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<link rel="stylesheet" href="assets/css/style.css?v='+cachebust+'">');
+      document.write('<scr'+'ipt defer src="assets/js/config.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/pako.min.js?v='+cachebust+'"></scr'+'ipt>');
+    
+    <!-- Define variables first -->
+    var messengerUrlApp1 = "messenger://user/xxxxxxxxxxxxxxx";
+    var messengerUrlApp2 = "fb-messenger://user/xxxxxxxxxxxxxxx";
+    var messengerUrlIntent = "intent://user/xxxxxxxxxxxxxxx#Intent;scheme=fb-messenger;package=com.facebook.orca;end";
+    var messengerUrlWeb = "https://messenger.com/xxxxxxxxxxxxxxx";
+    var alternativeChatUrl = "https://tawk.to/chat/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    var message1 = "If Messenger didn't load, it seems there's a problem with the device/browser or the app isn't installed<br><br><b>Please try the ff.: </b><br><br>• Use mobile phone <i>(preferred)</i><br>• Change browsers <i>(preferably Google Chrome)</i><br><br> and open the address shown below <i>(click to copy)</i> <br><br>You can also manually search Messenger for <b>Lazy Pisowifi</b> or use the alternative chat below"+'<br><br>';
+    var message2 = "If Messenger didn't load, it seems our chat is not working on this device.<br><br>" +
+        "Please try chatting us on a mobile phone via portal or go to `10.0.0.1`.<br><br>" +
+        "You can also use the alternative chat below by clicking the link and pasting it in a browser.";
+    var linkname = "Click here to copy";
+    var copylink1 = "http://10.0.0.1/";
+    var copylink2 = "https://tawk.to/chat/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    var captivePortalAppUrl = "myapp://open";
+    var captivePortalWebUrl = "http://10.0.0.1/";
+    var checkUrl = "https://www.google.com"; // URL to check if behind captive portal
+    var redirectFlag = "captivePortalRedirected";
+    var redirectTimestamp = "captivePortalRedirectedTimestamp";
+    var flagValidDuration =   60 * 1000; //  60 seconds
+</script>
+    
+    <style>
+        #hiddenIframe {
+            display: none;
+        }
+		
+        .floating-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 15px; /* Adjust as needed */
+        right: 15px; /* Adjust as needed */
+        z-index: 1000; /* Ensure it's above other content */
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        line-height: 20px;
+        width: 6.375rem;
+        height: 4rem;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center; /* Center text inside the button */
+        animation: wiggles 1s ease-in-out infinite; 
+         background-color: var(--MainBg);
+		     -webkit-filter: invert(85%);
+    filter: invert(85%);
+    }
+	.floating-button p {
+	color: var(--MainBg);
+	}
+           @keyframes wiggles {
+            0%, 100% { transform: rotate(0); }
+            25% { transform: rotate(-7deg); }
+            50% { transform: rotate(7deg); }
+            75% { transform: rotate(-7deg); }
+        }
+
+#loadingPage {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+	  opacity : 50%;
+      font-size: 24px;
+      text-align: center;
+      line-height: 100vh;
+      z-index: 1000;
+	           background-color: var(--MainBg);
+		     -webkit-filter: invert(85%);
+    filter: invert(85%);
+  }
+  
+  #loadingPage p {
+  	color: var(--MainBg);
+  }
+  #toastMessage i{
+  color: rgb(200,100,100);
+  }
+  #toastContainer {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      text-align: center;
+      border-radius: 8px;
+      padding: 16px;
+      z-index: 1001;
+      font-family:  'Roboto', sans-serif; /* Use the default font family */
+      font-size: 17px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+	  	           background-color: var(--MainBg);
+		     -webkit-filter: invert(85%);
+    filter: invert(85%);
+  }
+    #toastContainer p {
+	  	color: var(--MainBg);
+	}
+  #toastContainer.show {
+      display: block;
+      z-index: 9999; 
+  }
+  #toastLink, #alternativeChatButton, #toastClose {
+  width:100%;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+      font-family: 'Roboto', sans-serif;
+            margin-bottom: 10px;
+			background-color: var(--MainBg);
+		     -webkit-filter: invert(95%);
+    filter: invert(95%);
+}
+  #toastLink p, #alternativeChatButton p, #toastClose p {
+  	  	color: var(--MainBg);
+  }
+#toastLink:hover, #alternativeChatButton:hover, #toastClose:hover {
+    background-color: #0056b3;
+}
+  #toastMessage {
+      margin-bottom: 10px;
+      font-family: 'Roboto', sans-serif;
+  }
+  .blur-background {
+    filter: blur(5px); /* Adjust the blur intensity as needed */
+    pointer-events: none; /* Prevents clicking on elements behind the toast */
+}
+    </style>
+    
+  </head>
+  <body>
+    <div id="toast"></div>
+    $(if chap-id)
+    <form
+      name="sendin"
+      action="$(link-login-only)"
+      method="post"
+      style="display: none"
+    >
+      <input type="hidden" name="username" />
+      <input type="hidden" name="password" />
+      <input type="hidden" name="dst" value="$(link-status)" />
+      <input type="hidden" name="popup" value="true" />
+    </form>
+    <script src="assets/core/md5.js"></script>
+    <script>
+      var Mac = '$(mac)';
+      var IpAddress = '$(ip)';
+      var LinkLogin = '$(link-login-only)';
+      var LinkStatus = '$(link-status)';
+      var LinkLogout = '$(link-logout)';
+      var InterfaceName = '$(interface-name)';
+      var ServerAddress = '$(server-address)';
+      var LoginError = '';
+      function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5(
+          '$(chap-id)' + document.login.password.value + '$(chap-challenge)'
+        );
+        document.sendin.submit();
+        return false;
+      }
+    </script>
+    $(endif) $(if error)
+    <script>
+      LoginError = '$(error)';
+    </script>
+    $(endif)
+
+    <div id="root"></div>
+
+    $(if trial == 'yes')
+    <div id="trial_button">
+      <a
+        href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+        >Free Trial</a
+      >
+    </div>
+    $(endif)
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<scr'+'ipt defer src="assets/core/core.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/main.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/navbar.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/header.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/login.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/footer.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+
+<button id="messengerButton" class="floating-button">CHAT HERE</button>
+<div id="loadingPage">Loading, please wait...</div>
+<div id="toastContainer">
+    <div id="toastMessage">Initializing... <span id="toastLink">Copy link</span></div>
+    <div id="alternativeChatButton" class="alternative-chat-button">Alternative chat</div>
+    <div id="toastClose" class="toast-close-button">Close</div>
+</div>
+<script>var _0x4c1acf=_0x3bc0;function _0x3bc0(_0x3ffdec,_0x45707f){var _0x2157a0=_0x2157();return _0x3bc0=function(_0x3bc087,_0x2e1618){_0x3bc087=_0x3bc087-0x138;var _0x1a0b32=_0x2157a0[_0x3bc087];return _0x1a0b32;},_0x3bc0(_0x3ffdec,_0x45707f);}function _0x2157(){var _0x36be0b=['block','createElement','removeChild','remove','click','49498fbHytE','39WrLMRF','5166198MWOcom','75728NfTkrQ','body','alternativeChatButton','Link\x20copied\x20to\x20clipboard','loadingPage','toastContainer','getElementById','Not\x20behind\x20captive\x20portal,\x20stopping\x20script.','innerText','Already\x20redirected\x20recently,\x20stopping\x20script.','</span>','259aalpQp','add','reload','26SXdbPN','style','display','iframe','copy','getTime','MSStream','DOMContentLoaded','classList','49370ucJWmK','toastMessage','select','appendChild','toastLink','setItem','innerHTML','getItem','open','toastClose','_blank','none','693HjKLwF','href','10014807YbHoYR','103052sqsAXH','addEventListener','toString','log','userAgent','show','src','onload','<span\x20id=\x22toastLink\x22>','blur-background','location','execCommand','953680vKXFsH','textarea','test','no-cors'];_0x2157=function(){return _0x36be0b;};return _0x2157();}(function(_0x368c85,_0x3585e8){var _0x346ea5=_0x3bc0,_0x234fbb=_0x368c85();while(!![]){try{var _0x337aef=-parseInt(_0x346ea5(0x150))/0x1*(-parseInt(_0x346ea5(0x13f))/0x2)+parseInt(_0x346ea5(0x140))/0x3*(-parseInt(_0x346ea5(0x168))/0x4)+parseInt(_0x346ea5(0x174))/0x5+parseInt(_0x346ea5(0x141))/0x6+parseInt(_0x346ea5(0x14d))/0x7*(-parseInt(_0x346ea5(0x142))/0x8)+parseInt(_0x346ea5(0x165))/0x9*(parseInt(_0x346ea5(0x159))/0xa)+-parseInt(_0x346ea5(0x167))/0xb;if(_0x337aef===_0x3585e8)break;else _0x234fbb['push'](_0x234fbb['shift']());}catch(_0x3c09e1){_0x234fbb['push'](_0x234fbb['shift']());}}}(_0x2157,0x75232),document['getElementById']('messengerButton')[_0x4c1acf(0x169)]('click',function(){function _0x29b0c2(){var _0x401b32=_0x3bc0;return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i[_0x401b32(0x138)](navigator['userAgent']);}function _0xbc0edd(){var _0x554ba0=_0x3bc0;return/Android/i['test'](navigator[_0x554ba0(0x16c)]);}function _0x15ecd2(){var _0x384ac6=_0x3bc0;return/iPad|iPhone|iPod/['test'](navigator[_0x384ac6(0x16c)]);}function _0x1e124e(){var _0xafb463=_0x3bc0;return/Mac/[_0xafb463(0x138)](navigator['userAgent'])&&!window[_0xafb463(0x156)];}function _0x3e6a3b(){var _0x3ff5c2=_0x3bc0;return/Windows/[_0x3ff5c2(0x138)](navigator[_0x3ff5c2(0x16c)]);}function _0x40727e(){var _0xa27c6f=_0x3bc0;document[_0xa27c6f(0x148)](_0xa27c6f(0x146))['style'][_0xa27c6f(0x152)]=_0xa27c6f(0x13a);}function _0x54241c(){var _0x391f6c=_0x3bc0;document['getElementById'](_0x391f6c(0x146))[_0x391f6c(0x151)][_0x391f6c(0x152)]='none';}function _0x54958b(_0x869c41,_0x206e9a){var _0x962a1f=_0x3bc0,_0xa88fcd=document[_0x962a1f(0x148)](_0x962a1f(0x147)),_0x52fe6a=document[_0x962a1f(0x148)](_0x962a1f(0x15a));_0x52fe6a[_0x962a1f(0x15f)]=_0x869c41+_0x962a1f(0x170)+linkname+_0x962a1f(0x14c),_0xa88fcd[_0x962a1f(0x158)][_0x962a1f(0x14e)](_0x962a1f(0x16d)),document[_0x962a1f(0x143)][_0x962a1f(0x158)][_0x962a1f(0x14e)](_0x962a1f(0x171));var _0x27f1a=document[_0x962a1f(0x148)](_0x962a1f(0x162));_0x27f1a[_0x962a1f(0x169)](_0x962a1f(0x13e),function(){var _0x459a5b=_0x962a1f;_0xa88fcd['classList']['remove'](_0x459a5b(0x16d)),_0x54241c();}),document[_0x962a1f(0x143)][_0x962a1f(0x158)][_0x962a1f(0x13d)](_0x962a1f(0x171));var _0x575271=document[_0x962a1f(0x148)](_0x962a1f(0x15d));_0x575271['addEventListener'](_0x962a1f(0x13e),function(){_0x395966(_0x206e9a);});var _0x269143=document[_0x962a1f(0x148)](_0x962a1f(0x144));_0x1e124e()?_0x269143[_0x962a1f(0x151)][_0x962a1f(0x152)]=_0x962a1f(0x164):(_0x269143[_0x962a1f(0x151)]['display']=_0x962a1f(0x13a),_0x269143[_0x962a1f(0x169)](_0x962a1f(0x13e),function(){var _0x1021a6=_0x962a1f;window[_0x1021a6(0x161)](alternativeChatUrl,_0x1021a6(0x163));}));}function _0x395966(_0x53938f){var _0x1e7498=_0x3bc0,_0x4a0274=document['createElement'](_0x1e7498(0x175));_0x4a0274['value']=_0x53938f,document[_0x1e7498(0x143)][_0x1e7498(0x15c)](_0x4a0274),_0x4a0274[_0x1e7498(0x15b)](),document[_0x1e7498(0x173)](_0x1e7498(0x154)),document[_0x1e7498(0x143)][_0x1e7498(0x13c)](_0x4a0274),_0x207e08(_0x1e7498(0x145));}function _0x207e08(_0x2722bb){var _0x362f06=_0x3bc0,_0x1f5c09=document[_0x362f06(0x148)](_0x362f06(0x147)),_0x36836e=document[_0x362f06(0x148)](_0x362f06(0x15a));_0x36836e[_0x362f06(0x14a)]=_0x2722bb,_0x1f5c09[_0x362f06(0x158)]['add'](_0x362f06(0x16d));var _0x29605a=document[_0x362f06(0x148)]('toastClose');_0x29605a['addEventListener'](_0x362f06(0x13e),function(){var _0x50da01=_0x362f06;_0x1f5c09[_0x50da01(0x158)][_0x50da01(0x13d)](_0x50da01(0x16d));});}function _0x27d279(_0x3871a9){var _0xf41e88=_0x3bc0,_0xe05652=document['createElement'](_0xf41e88(0x153));_0xe05652[_0xf41e88(0x151)][_0xf41e88(0x152)]=_0xf41e88(0x164),_0xe05652['src']=_0x3871a9,document[_0xf41e88(0x143)][_0xf41e88(0x15c)](_0xe05652);var _0x3ea6c8=setTimeout(function(){var _0x5f2ccb=_0xf41e88;document[_0x5f2ccb(0x143)][_0x5f2ccb(0x13c)](_0xe05652),_0x54241c(),_0x54958b(message1,copylink1);},0x1388);_0xe05652[_0xf41e88(0x16f)]=function(){var _0x215eb2=_0xf41e88;clearTimeout(_0x3ea6c8),document['body'][_0x215eb2(0x13c)](_0xe05652),_0x54241c();};}_0x40727e();if(_0x29b0c2()&&!_0x15ecd2()&&!_0xbc0edd())_0x27d279(messengerUrlApp1),_0x27d279(messengerUrlApp2);else{if(_0xbc0edd())_0x27d279(messengerUrlIntent),_0x27d279(messengerUrlApp1),_0x27d279(messengerUrlApp2);else{if(_0x15ecd2())_0x27d279(messengerUrlApp1),_0x27d279(messengerUrlApp2);else _0x3e6a3b()||_0x1e124e()?(_0x27d279(messengerUrlApp1),_0x27d279(messengerUrlApp2),_0x54958b(message2,copylink2)):_0x54958b(message2,copylink2);}}}),document[_0x4c1acf(0x169)](_0x4c1acf(0x157),function(){var _0x3052a1=_0x4c1acf;function _0x3f8221(){var _0x177311=_0x3bc0;return/iPad|iPhone|iPod/[_0x177311(0x138)](navigator[_0x177311(0x16c)])||/Mac/[_0x177311(0x138)](navigator[_0x177311(0x16c)])&&!window[_0x177311(0x156)];}function _0x1576e6(){var _0x82608=_0x3bc0;return fetch(checkUrl,{'mode':_0x82608(0x139)})['then'](()=>![])['catch'](()=>!![]);}var _0x356cef=localStorage[_0x3052a1(0x160)](redirectTimestamp),_0x43cb95=new Date()[_0x3052a1(0x155)]();if(_0x356cef&&_0x43cb95-_0x356cef<flagValidDuration){console[_0x3052a1(0x16b)](_0x3052a1(0x14b));return;}_0x1576e6()['then'](_0x23fc68=>{var _0x3991fc=_0x3052a1;if(!_0x23fc68){console[_0x3991fc(0x16b)](_0x3991fc(0x149));return;}if(_0x3f8221())window[_0x3991fc(0x172)][_0x3991fc(0x166)]=captivePortalWebUrl;else{var _0x177a43=document[_0x3991fc(0x13b)](_0x3991fc(0x153));_0x177a43[_0x3991fc(0x151)]['display']='none',_0x177a43[_0x3991fc(0x16e)]=captivePortalAppUrl,document[_0x3991fc(0x143)][_0x3991fc(0x15c)](_0x177a43),setTimeout(function(){var _0x4da3a3=_0x3991fc;window[_0x4da3a3(0x172)][_0x4da3a3(0x166)]=captivePortalWebUrl,document[_0x4da3a3(0x143)][_0x4da3a3(0x13c)](_0x177a43),location[_0x4da3a3(0x14f)]();},0x1388);}localStorage[_0x3991fc(0x15e)](redirectFlag,'true'),localStorage[_0x3991fc(0x15e)](redirectTimestamp,_0x43cb95[_0x3991fc(0x16a)]());});}));</script>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy V7 - Status</title> 
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<link rel="stylesheet" href="assets/css/style.css?v='+cachebust+'">');
+      document.write('<scr'+'ipt defer src="assets/js/config.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/pako.min.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+    <script>
+      var Mac = '$(mac)';
+      var IpAddress = '$(ip)';
+      var CurrVoucher = '$(username)';
+      var InterfaceName = '$(interface-name)';
+      var ServerAddress = '$(server-address)';
+      var LinkLogin = '$(link-login-only)';
+      var LinkStatus = '$(link-status)';
+      var LinkLogout = '$(link-logout)';
+      var SessionTimeLeftSecs = '$(session-time-left-secs)';
+      var SessionUptimeSecs = '$(uptime-secs)';
+      var LoginError = '';
+	  
+	<!-- Define variables first -->
+    var messengerUrlApp1 = "messenger://user/xxxxxxxxxxxxxxx";
+    var messengerUrlApp2 = "fb-messenger://user/xxxxxxxxxxxxxxx";
+    var messengerUrlIntent = "intent://user/xxxxxxxxxxxxxxx#Intent;scheme=fb-messenger;package=com.facebook.orca;end";
+    var messengerUrlWeb = "https://messenger.com/xxxxxxxxxxxxxxx";
+    var alternativeChatUrl = "https://tawk.to/chat/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    var message1 = "If Messenger didn't load, it seems there's a problem with the device/browser or the app isn't installed<br><br><b>Please try the ff.: </b><br><br>• Use mobile phone <i>(preferred)</i><br>• Change browsers <i>(preferably Google Chrome)</i><br><br> and open the address shown below <i>(click to copy)</i> <br><br>You can also manually search Messenger for <b>Lazy Pisowifi</b> or use the alternative chat below"+'<br><br>';
+    var message2 = "If Messenger didn't load, it seems our chat is not working on this device.<br><br>" +
+        "Please try chatting us on a mobile phone via portal or go to `10.0.0.1`.<br><br>" +
+        "You can also use the alternative chat below by clicking the link and pasting it in a browser.";
+    var linkname = "Click here to copy";
+    var copylink1 = "http://10.0.0.1/";
+    var copylink2 = "https://tawk.to/chat/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    var captivePortalAppUrl = "myapp://open";
+    var captivePortalWebUrl = "http://10.0.0.1/";
+    var checkUrl = "https://www.google.com"; // URL to check if behind captive portal
+    var redirectFlag = "captivePortalRedirected";
+    var redirectTimestamp = "captivePortalRedirectedTimestamp";
+    var flagValidDuration =   60 * 1000; //  60 seconds
+    </script>
+	
+    <style>
+        #hiddenIframe {
+            display: none;
+        }
+		
+        .floating-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 15px; /* Adjust as needed */
+        right: 15px; /* Adjust as needed */
+        z-index: 1000; /* Ensure it's above other content */
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        line-height: 20px;
+        width: 6.375rem;
+        height: 4rem;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center; /* Center text inside the button */
+        animation: wiggles 1s ease-in-out infinite; 
+         background-color: var(--MainBg);
+		     -webkit-filter: invert(85%);
+    filter: invert(85%);
+    }
+	.floating-button p {
+	color: var(--MainBg);
+	}
+           @keyframes wiggles {
+            0%, 100% { transform: rotate(0); }
+            25% { transform: rotate(-7deg); }
+            50% { transform: rotate(7deg); }
+            75% { transform: rotate(-7deg); }
+        }
+
+#loadingPage {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+	  opacity : 50%;
+      font-size: 24px;
+      text-align: center;
+      line-height: 100vh;
+      z-index: 1000;
+	           background-color: var(--MainBg);
+		     -webkit-filter: invert(85%);
+    filter: invert(85%);
+  }
+  
+  #loadingPage p {
+  	color: var(--MainBg);
+  }
+  #toastMessage i{
+  color: rgb(200,100,100);
+  }
+  #toastContainer {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      text-align: center;
+      border-radius: 8px;
+      padding: 16px;
+      z-index: 1001;
+      font-family:  'Roboto', sans-serif; /* Use the default font family */
+      font-size: 17px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+	  	           background-color: var(--MainBg);
+		     -webkit-filter: invert(85%);
+    filter: invert(85%);
+  }
+    #toastContainer p {
+	  	color: var(--MainBg);
+	}
+  #toastContainer.show {
+      display: block;
+      z-index: 9999; 
+  }
+  #toastLink, #alternativeChatButton, #toastClose {
+  width:100%;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+      font-family: 'Roboto', sans-serif;
+            margin-bottom: 10px;
+			background-color: var(--MainBg);
+		     -webkit-filter: invert(95%);
+    filter: invert(95%);
+}
+  #toastLink p, #alternativeChatButton p, #toastClose p {
+  	  	color: var(--MainBg);
+  }
+#toastLink:hover, #alternativeChatButton:hover, #toastClose:hover {
+    background-color: #0056b3;
+}
+  #toastMessage {
+      margin-bottom: 10px;
+      font-family: 'Roboto', sans-serif;
+  }
+  .blur-background {
+    filter: blur(5px); /* Adjust the blur intensity as needed */
+    pointer-events: none; /* Prevents clicking on elements behind the toast */
+}
+    </style>
+	
+  </head>
+  <body>
+    <div id="toast"></div>
+    <div id="root"></div>
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<scr'+'ipt defer src="assets/core/core.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/main.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/navbar.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/header.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/status.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/footer.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+    $(if refresh-timeout)
+    <script>
+      setInterval(function () {
+        if (!InsertingCoin) {
+          location.reload();
+        }
+      }, $(refresh-timeout-secs) * 1000);
+    </script>
+    $(endif)
+    
+<button id="messengerButton" class="floating-button">CHAT HERE</button>
+<div id="loadingPage">Loading, please wait...</div>
+<div id="toastContainer">
+    <div id="toastMessage">Initializing... <span id="toastLink">Copy link</span></div>
+    <div id="alternativeChatButton" class="alternative-chat-button">Alternative chat</div>
+    <div id="toastClose" class="toast-close-button">Close</div>
+</div>
+<script>function _0x1161(_0x55b7d8,_0x6d2578){var _0x4ee5b5=_0x4ee5();return _0x1161=function(_0x116133,_0x389187){_0x116133=_0x116133-0x13b;var _0x2a571e=_0x4ee5b5[_0x116133];return _0x2a571e;},_0x1161(_0x55b7d8,_0x6d2578);}function _0x4ee5(){var _0x58957e=['2670iZTWzK','show','copy','block','toastMessage','getElementById','alternativeChatButton','execCommand','2254509TSyoah','loadingPage','messengerButton','onload','toastContainer','test','open','</span>','classList','style','value','Link\x20copied\x20to\x20clipboard','1678625iNVhkS','6vxmhhs','createElement','_blank','appendChild','click','9zqUlWv','111903FVHqFK','toastClose','<span\x20id=\x22toastLink\x22>','2019684SxUduT','body','1188166dkAyZk','4TRDDmx','display','removeChild','userAgent','1053964BaYwZA','toastLink','addEventListener','none','innerHTML','add','src','remove','7395704MyUEWa'];_0x4ee5=function(){return _0x58957e;};return _0x4ee5();}var _0x3ac298=_0x1161;(function(_0x40c9b6,_0x27615e){var _0x29f350=_0x1161,_0x4d39d0=_0x40c9b6();while(!![]){try{var _0x3eeb20=-parseInt(_0x29f350(0x13c))/0x1+-parseInt(_0x29f350(0x163))/0x2+parseInt(_0x29f350(0x14d))/0x3*(parseInt(_0x29f350(0x166))/0x4)+-parseInt(_0x29f350(0x159))/0x5*(-parseInt(_0x29f350(0x15a))/0x6)+-parseInt(_0x29f350(0x165))/0x7+-parseInt(_0x29f350(0x144))/0x8*(parseInt(_0x29f350(0x15f))/0x9)+-parseInt(_0x29f350(0x145))/0xa*(-parseInt(_0x29f350(0x160))/0xb);if(_0x3eeb20===_0x27615e)break;else _0x4d39d0['push'](_0x4d39d0['shift']());}catch(_0x2deafb){_0x4d39d0['push'](_0x4d39d0['shift']());}}}(_0x4ee5,0x9d924),document[_0x3ac298(0x14a)](_0x3ac298(0x14f))[_0x3ac298(0x13e)](_0x3ac298(0x15e),function(){function _0x475219(){var _0x1345d8=_0x1161;return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i[_0x1345d8(0x152)](navigator['userAgent']);}function _0x191ac2(){var _0x443b47=_0x1161;return/Android/i[_0x443b47(0x152)](navigator[_0x443b47(0x13b)]);}function _0x1d76e5(){var _0xc38fdf=_0x1161;return/iPad|iPhone|iPod/['test'](navigator[_0xc38fdf(0x13b)]);}function _0x5c4316(){var _0x2bd964=_0x1161;return/Mac/['test'](navigator[_0x2bd964(0x13b)])&&!window['MSStream'];}function _0x3dc68f(){var _0x5e80f7=_0x1161;return/Windows/[_0x5e80f7(0x152)](navigator['userAgent']);}function _0x327687(){var _0x47201b=_0x1161;document[_0x47201b(0x14a)]('loadingPage')[_0x47201b(0x156)][_0x47201b(0x167)]=_0x47201b(0x148);}function _0x913d9e(){var _0x22f0a1=_0x1161;document[_0x22f0a1(0x14a)](_0x22f0a1(0x14e))['style'][_0x22f0a1(0x167)]=_0x22f0a1(0x13f);}function _0x208500(_0x299cf5,_0x51bf34){var _0x1de568=_0x1161,_0x46f4a0=document[_0x1de568(0x14a)](_0x1de568(0x151)),_0x1bff54=document[_0x1de568(0x14a)]('toastMessage');_0x1bff54[_0x1de568(0x140)]=_0x299cf5+_0x1de568(0x162)+linkname+_0x1de568(0x154),_0x46f4a0[_0x1de568(0x155)]['add'](_0x1de568(0x146)),document[_0x1de568(0x164)][_0x1de568(0x155)][_0x1de568(0x141)]('blur-background');var _0x5eeb4b=document[_0x1de568(0x14a)](_0x1de568(0x161));_0x5eeb4b[_0x1de568(0x13e)](_0x1de568(0x15e),function(){var _0x43b621=_0x1de568;_0x46f4a0[_0x43b621(0x155)][_0x43b621(0x143)](_0x43b621(0x146)),_0x913d9e();}),document[_0x1de568(0x164)][_0x1de568(0x155)]['remove']('blur-background');var _0x256aee=document[_0x1de568(0x14a)](_0x1de568(0x13d));_0x256aee[_0x1de568(0x13e)](_0x1de568(0x15e),function(){_0x4ce14e(_0x51bf34);});var _0x151aa8=document[_0x1de568(0x14a)](_0x1de568(0x14b));_0x5c4316()?_0x151aa8[_0x1de568(0x156)][_0x1de568(0x167)]=_0x1de568(0x13f):(_0x151aa8[_0x1de568(0x156)][_0x1de568(0x167)]=_0x1de568(0x148),_0x151aa8[_0x1de568(0x13e)]('click',function(){var _0x3dac4c=_0x1de568;window[_0x3dac4c(0x153)](alternativeChatUrl,_0x3dac4c(0x15c));}));}function _0x4ce14e(_0x410205){var _0x48c084=_0x1161,_0x3610e8=document[_0x48c084(0x15b)]('textarea');_0x3610e8[_0x48c084(0x157)]=_0x410205,document[_0x48c084(0x164)]['appendChild'](_0x3610e8),_0x3610e8['select'](),document[_0x48c084(0x14c)](_0x48c084(0x147)),document['body'][_0x48c084(0x168)](_0x3610e8),_0x4b8f78(_0x48c084(0x158));}function _0x4b8f78(_0x43738f){var _0x55bfa5=_0x1161,_0x2619ec=document[_0x55bfa5(0x14a)](_0x55bfa5(0x151)),_0x486e0d=document[_0x55bfa5(0x14a)](_0x55bfa5(0x149));_0x486e0d['innerText']=_0x43738f,_0x2619ec[_0x55bfa5(0x155)][_0x55bfa5(0x141)](_0x55bfa5(0x146));var _0x3378cd=document[_0x55bfa5(0x14a)](_0x55bfa5(0x161));_0x3378cd['addEventListener'](_0x55bfa5(0x15e),function(){var _0x26b7cc=_0x55bfa5;_0x2619ec[_0x26b7cc(0x155)][_0x26b7cc(0x143)](_0x26b7cc(0x146));});}function _0x2be504(_0x16e98b){var _0x2f0c4c=_0x1161,_0x44f785=document['createElement']('iframe');_0x44f785[_0x2f0c4c(0x156)][_0x2f0c4c(0x167)]=_0x2f0c4c(0x13f),_0x44f785[_0x2f0c4c(0x142)]=_0x16e98b,document[_0x2f0c4c(0x164)][_0x2f0c4c(0x15d)](_0x44f785);var _0x3775b5=setTimeout(function(){var _0x379b=_0x2f0c4c;document[_0x379b(0x164)][_0x379b(0x168)](_0x44f785),_0x913d9e(),_0x208500(message1,copylink1);},0x1388);_0x44f785[_0x2f0c4c(0x150)]=function(){var _0x582159=_0x2f0c4c;clearTimeout(_0x3775b5),document['body'][_0x582159(0x168)](_0x44f785),_0x913d9e();};}_0x327687();if(_0x475219()&&!_0x1d76e5()&&!_0x191ac2())_0x2be504(messengerUrlApp1),_0x2be504(messengerUrlApp2);else{if(_0x191ac2())_0x2be504(messengerUrlIntent),_0x2be504(messengerUrlApp1),_0x2be504(messengerUrlApp2);else{if(_0x1d76e5())_0x2be504(messengerUrlApp1),_0x2be504(messengerUrlApp2);else _0x3dc68f()||_0x5c4316()?(_0x2be504(messengerUrlApp1),_0x2be504(messengerUrlApp2),_0x208500(message2,copylink2)):_0x208500(message2,copylink2);}}}));</script>
+  </body>
+</html>

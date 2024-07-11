@@ -37,14 +37,16 @@
 
 ## DOWNLOADS
 
-### Redirect Captive Portal Only Download `(password at the bottom)`
+### Latest Version `(password at the bottom)`
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal.zip" download>Bypass captive portal</a> || 
-
-
-### Redirect Captive Portal w/ Messenger Download `(password at the bottom)`
-
+---
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with Messenger.zip" download>Bypass captive portal with Messenger</a> ||
+---
+
+### Old Versions `(password at the bottom)`
+
+|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Old_versions.zip" download>Old Versions</a> ||
 
 ---
 
@@ -95,7 +97,7 @@
 
 ---
 
-### zip password - `lazy7821`
+### zip password - `lazy9386`
 
 ---
 
