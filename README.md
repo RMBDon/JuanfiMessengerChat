@@ -41,6 +41,8 @@
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal.zip" download>Bypass captive portal</a> || 
 
+|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Clear_Voucher_Only.zip" download>Clear Voucher Only</a> || 
+
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with Messenger.zip" download>Bypass captive portal with Messenger</a> ||
 
 
