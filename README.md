@@ -39,16 +39,23 @@
 
 ### Latest Version `(password at the bottom)`
 
-|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal.zip" download>Bypass captive portal w/ Clear Voucher</a> || 
+|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with clear voucher.zip" download>Bypass captive portal w/ Clear Voucher</a> || 
 
-|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Clear_Voucher_Only.zip" download>Clear Voucher Only</a> || 
+|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/clear voucher only.zip" download>Clear Voucher Only</a> || 
 
-|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with Messenger.zip" download>Bypass captive portal with Messenger and Clear Voucher</a> ||
+|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with Messenger with Clear Voucher.zip" download>Bypass captive portal with Messenger</a> ||
+
+|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with Messenger.zip" download>Bypass captive portal with Messenger</a> ||
 
 
 ### Old Versions `(password at the bottom)`
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Old_versions.zip" download>Old Versions</a> ||
+
+
+### Others `(password at the bottom)`
+
+|| <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/loyalty.zip" download>Fixed Unliloop Loyalty Page</a> ||
 
 ---
 
