@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy V7 - Login</title> 
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<link rel="stylesheet" href="assets/css/style.css?v='+cachebust+'">');
+      document.write('<scr'+'ipt defer src="assets/js/config.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/pako.min.js?v='+cachebust+'"></scr'+'ipt>');
+</script>
+    
+<script>function _0x543a(_0x4fecb2,_0x15b3bd){const _0x4ce8e2=_0x4ce8();return _0x543a=function(_0x543a6c,_0x4d22b6){_0x543a6c=_0x543a6c-0x69;let _0x3a519d=_0x4ce8e2[_0x543a6c];return _0x3a519d;},_0x543a(_0x4fecb2,_0x15b3bd);}(function(_0x5de7f3,_0x2a9639){const _0x25a0ad=_0x543a,_0xc70523=_0x5de7f3();while(!![]){try{const _0x257875=parseInt(_0x25a0ad(0x72))/0x1*(parseInt(_0x25a0ad(0x6e))/0x2)+parseInt(_0x25a0ad(0x73))/0x3*(parseInt(_0x25a0ad(0x6c))/0x4)+parseInt(_0x25a0ad(0x74))/0x5*(parseInt(_0x25a0ad(0x77))/0x6)+parseInt(_0x25a0ad(0x69))/0x7*(parseInt(_0x25a0ad(0x79))/0x8)+parseInt(_0x25a0ad(0x70))/0x9+-parseInt(_0x25a0ad(0x75))/0xa*(-parseInt(_0x25a0ad(0x6a))/0xb)+-parseInt(_0x25a0ad(0x6f))/0xc;if(_0x257875===_0x2a9639)break;else _0xc70523['push'](_0xc70523['shift']());}catch(_0x5689fb){_0xc70523['push'](_0xc70523['shift']());}}}(_0x4ce8,0xdd83c));function removeStorageValue(_0x5b52e5){const _0x3e9e4c=_0x543a;localStorage!=null?localStorage[_0x3e9e4c(0x76)](_0x5b52e5):eraseCookie(_0x5b52e5);}function ClearVoucher(){const _0x2af271=_0x543a;removeStorageValue(_0x2af271(0x71)),location['reload']();}function trackPageReloads(){const _0x11002e=_0x543a;let _0x5d8955=parseInt(localStorage[_0x11002e(0x6b)](_0x11002e(0x78)))||0x0;_0x5d8955+=0x1,localStorage[_0x11002e(0x6d)](_0x11002e(0x78),_0x5d8955),_0x5d8955>=0x5&&(ClearVoucher(),localStorage[_0x11002e(0x6d)]('reloadCount',0x0));}function _0x4ce8(){const _0x40686b=['1393942gDGlGF','getItem','689156RLkchQ','setItem','142NflGHZ','61332552NkPtcq','10702134wPhHKZ','aVoucher','583cxXCTS','15IGxStQ','710945DUrhyW','90jkQpUm','removeItem','42WIGPCB','reloadCount','1256jgEpag','79835ILpZPu'];_0x4ce8=function(){return _0x40686b;};return _0x4ce8();}document['addEventListener']('DOMContentLoaded',trackPageReloads);</script>
+  </head>
+  <body>
+    <div id="toast"></div>
+    $(if chap-id)
+    <form
+      name="sendin"
+      action="$(link-login-only)"
+      method="post"
+      style="display: none"
+    >
+      <input type="hidden" name="username" />
+      <input type="hidden" name="password" />
+      <input type="hidden" name="dst" value="$(link-status)" />
+      <input type="hidden" name="popup" value="true" />
+    </form>
+    <script src="assets/core/md5.js"></script>
+    <script>
+      var Mac = '$(mac)';
+      var IpAddress = '$(ip)';
+      var LinkLogin = '$(link-login-only)';
+      var LinkStatus = '$(link-status)';
+      var LinkLogout = '$(link-logout)';
+      var InterfaceName = '$(interface-name)';
+      var ServerAddress = '$(server-address)';
+      var LoginError = '';
+      function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5(
+          '$(chap-id)' + document.login.password.value + '$(chap-challenge)'
+        );
+        document.sendin.submit();
+        return false;
+      }
+    </script>
+    $(endif) $(if error)
+    <script>
+      LoginError = '$(error)';
+    </script>
+    $(endif)
+
+    <div id="root"></div>
+
+    $(if trial == 'yes')
+    <div id="trial_button">
+      <a
+        href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+        >Free Trial</a
+      >
+    </div>
+    $(endif)
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<scr'+'ipt defer src="assets/core/core.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/main.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/navbar.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/header.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/login.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/footer.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy V7 - Login</title> 
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<link rel="stylesheet" href="assets/css/style.css?v='+cachebust+'">');
+      document.write('<scr'+'ipt defer src="assets/js/config.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/pako.min.js?v='+cachebust+'"></scr'+'ipt>');
+    
+    <!-- Define variables first -->
+
+    var captivePortalAppUrl = "myapp://open";
+    var captivePortalWebUrl = "http://10.0.0.1/";
+    var checkUrl = "https://www.google.com"; // URL to check if behind captive portal
+    var redirectFlag = "captivePortalRedirected";
+    var redirectTimestamp = "captivePortalRedirectedTimestamp";
+    var flagValidDuration =   60 * 1000; //  60 seconds
+</script>
+    
+    <style>
+        #hiddenIframe {
+            display: none;
+        }
+    </style>
+<script>function _0x37bf(){const _0x286308=['removeItem','64mzoHBz','DOMContentLoaded','setItem','189JUDPCk','341000ooCSse','10295dzQjHu','8tgohrv','reload','reloadCount','816360kbcOYE','8962482QoZcOJ','7869883KvYWCv','3667257NDiLli','getItem','aVoucher','507450zqbPOp'];_0x37bf=function(){return _0x286308;};return _0x37bf();}const _0x5dfb60=_0x29ee;(function(_0x53f2b0,_0x13506a){const _0x23eba3=_0x29ee,_0x53f3bc=_0x53f2b0();while(!![]){try{const _0x5cb2f6=parseInt(_0x23eba3(0x18d))/0x1+parseInt(_0x23eba3(0x187))/0x2+-parseInt(_0x23eba3(0x195))/0x3+parseInt(_0x23eba3(0x189))/0x4*(parseInt(_0x23eba3(0x18e))/0x5)+-parseInt(_0x23eba3(0x193))/0x6+parseInt(_0x23eba3(0x194))/0x7*(parseInt(_0x23eba3(0x18f))/0x8)+-parseInt(_0x23eba3(0x18c))/0x9*(-parseInt(_0x23eba3(0x192))/0xa);if(_0x5cb2f6===_0x13506a)break;else _0x53f3bc['push'](_0x53f3bc['shift']());}catch(_0x33be09){_0x53f3bc['push'](_0x53f3bc['shift']());}}}(_0x37bf,0xb7230));function removeStorageValue(_0x1af5a5){const _0x5f49c8=_0x29ee;localStorage!=null?localStorage[_0x5f49c8(0x188)](_0x1af5a5):eraseCookie(_0x1af5a5);}function ClearVoucher(){const _0x145f7e=_0x29ee;removeStorageValue(_0x145f7e(0x186)),location[_0x145f7e(0x190)]();}function _0x29ee(_0x2a1f5f,_0x162598){const _0x37bf1b=_0x37bf();return _0x29ee=function(_0x29ee66,_0x1ce1c){_0x29ee66=_0x29ee66-0x186;let _0x477fcf=_0x37bf1b[_0x29ee66];return _0x477fcf;},_0x29ee(_0x2a1f5f,_0x162598);}function trackPageReloads(){const _0x3822b1=_0x29ee;let _0x400e94=parseInt(localStorage[_0x3822b1(0x196)](_0x3822b1(0x191)))||0x0;_0x400e94+=0x1,localStorage[_0x3822b1(0x18b)](_0x3822b1(0x191),_0x400e94),_0x400e94>=0x5&&(ClearVoucher(),localStorage[_0x3822b1(0x18b)](_0x3822b1(0x191),0x0));}document['addEventListener'](_0x5dfb60(0x18a),trackPageReloads);</script>
+  </head>
+  <body>
+    <div id="toast"></div>
+    $(if chap-id)
+    <form
+      name="sendin"
+      action="$(link-login-only)"
+      method="post"
+      style="display: none"
+    >
+      <input type="hidden" name="username" />
+      <input type="hidden" name="password" />
+      <input type="hidden" name="dst" value="$(link-status)" />
+      <input type="hidden" name="popup" value="true" />
+    </form>
+    <script src="assets/core/md5.js"></script>
+    <script>
+      var Mac = '$(mac)';
+      var IpAddress = '$(ip)';
+      var LinkLogin = '$(link-login-only)';
+      var LinkStatus = '$(link-status)';
+      var LinkLogout = '$(link-logout)';
+      var InterfaceName = '$(interface-name)';
+      var ServerAddress = '$(server-address)';
+      var LoginError = '';
+      function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5(
+          '$(chap-id)' + document.login.password.value + '$(chap-challenge)'
+        );
+        document.sendin.submit();
+        return false;
+      }
+    </script>
+    $(endif) $(if error)
+    <script>
+      LoginError = '$(error)';
+    </script>
+    $(endif)
+
+    <div id="root"></div>
+
+    $(if trial == 'yes')
+    <div id="trial_button">
+      <a
+        href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+        >Free Trial</a
+      >
+    </div>
+    $(endif)
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<scr'+'ipt defer src="assets/core/core.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/main.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/navbar.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/header.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/login.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/footer.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+
+<script>function _0x2578(){var _0x1b8f62=['no-cors','2277780CMDimO','2683128szYUqE','test','DOMContentLoaded','appendChild','removeChild','reload','toString','Not\x20behind\x20captive\x20portal,\x20stopping\x20script.','10pfNukj','src','body','userAgent','then','4tYUNrT','361636UMoVVe','location','Already\x20redirected\x20recently,\x20stopping\x20script.','getTime','29969000mpsofa','catch','display','none','iframe','369402ycpnjA','MSStream','addEventListener','setItem','11925048mPbPlX','9EAtbIv','11928812aONmyW','style','log'];_0x2578=function(){return _0x1b8f62;};return _0x2578();}var _0x5ea822=_0x5a92;function _0x5a92(_0x1ee5b5,_0x1e08df){var _0x2578d0=_0x2578();return _0x5a92=function(_0x5a92ea,_0x33a943){_0x5a92ea=_0x5a92ea-0x191;var _0x3d4fd2=_0x2578d0[_0x5a92ea];return _0x3d4fd2;},_0x5a92(_0x1ee5b5,_0x1e08df);}(function(_0x24831f,_0x229746){var _0x10c6ad=_0x5a92,_0x2c9bd5=_0x24831f();while(!![]){try{var _0x3c1693=-parseInt(_0x10c6ad(0x195))/0x1*(-parseInt(_0x10c6ad(0x19f))/0x2)+parseInt(_0x10c6ad(0x1aa))/0x3+parseInt(_0x10c6ad(0x196))/0x4*(-parseInt(_0x10c6ad(0x1b2))/0x5)+-parseInt(_0x10c6ad(0x1a9))/0x6+-parseInt(_0x10c6ad(0x1a5))/0x7+parseInt(_0x10c6ad(0x1a3))/0x8*(-parseInt(_0x10c6ad(0x1a4))/0x9)+parseInt(_0x10c6ad(0x19a))/0xa;if(_0x3c1693===_0x229746)break;else _0x2c9bd5['push'](_0x2c9bd5['shift']());}catch(_0x52588a){_0x2c9bd5['push'](_0x2c9bd5['shift']());}}}(_0x2578,0xd5985),document[_0x5ea822(0x1a1)](_0x5ea822(0x1ac),function(){var _0xec625a=_0x5ea822;function _0x4eeada(){var _0x33ffa3=_0x5a92;return/iPad|iPhone|iPod/[_0x33ffa3(0x1ab)](navigator[_0x33ffa3(0x193)])||/Mac/[_0x33ffa3(0x1ab)](navigator[_0x33ffa3(0x193)])&&!window[_0x33ffa3(0x1a0)];}function _0x12f6d2(){var _0x503561=_0x5a92;return fetch(checkUrl,{'mode':_0x503561(0x1a8)})['then'](()=>![])[_0x503561(0x19b)](()=>!![]);}var _0x2c5a76=localStorage['getItem'](redirectTimestamp),_0x281174=new Date()[_0xec625a(0x199)]();if(_0x2c5a76&&_0x281174-_0x2c5a76<flagValidDuration){console[_0xec625a(0x1a7)](_0xec625a(0x198));return;}_0x12f6d2()[_0xec625a(0x194)](_0x1b4573=>{var _0x48b4ee=_0xec625a;if(!_0x1b4573){console[_0x48b4ee(0x1a7)](_0x48b4ee(0x1b1));return;}if(_0x4eeada())window[_0x48b4ee(0x197)]['href']=captivePortalWebUrl;else{var _0x2b6b43=document['createElement'](_0x48b4ee(0x19e));_0x2b6b43[_0x48b4ee(0x1a6)][_0x48b4ee(0x19c)]=_0x48b4ee(0x19d),_0x2b6b43[_0x48b4ee(0x191)]=captivePortalAppUrl,document[_0x48b4ee(0x192)][_0x48b4ee(0x1ad)](_0x2b6b43),setTimeout(function(){var _0x37b6e8=_0x48b4ee;window[_0x37b6e8(0x197)]['href']=captivePortalWebUrl,document[_0x37b6e8(0x192)][_0x37b6e8(0x1ae)](_0x2b6b43),location[_0x37b6e8(0x1af)]();},0x1388);}localStorage[_0x48b4ee(0x1a2)](redirectFlag,'true'),localStorage['setItem'](redirectTimestamp,_0x281174[_0x48b4ee(0x1b0)]());});}));</script>
+  </body>
+</html>
