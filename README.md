@@ -106,7 +106,7 @@
 
 ---
 
-### zip password - `lazy9386`
+### zip password - `lazy4692`
 
 ---
 
