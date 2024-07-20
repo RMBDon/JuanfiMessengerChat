@@ -36,9 +36,9 @@
 ---
 
 ## DOWNLOADS
-
-### Latest Version `(password at the bottom)`
 <!--
+### Latest Version `(password at the bottom)`
+
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with clear voucher.zip" download>Bypass captive portal w/ Clear Voucher</a> || 
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/clear voucher only.zip" download>Clear Voucher Only</a> || 
