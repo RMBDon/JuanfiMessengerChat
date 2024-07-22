@@ -32,7 +32,7 @@
     height: 100%;
   }
 </style>
-
+<!--
 ---
 
 ## DOWNLOADS
@@ -57,7 +57,7 @@
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/loyalty.zip" download>Fixed Unliloop Loyalty Page</a> ||
 
-
+-->
 
 ---
 
