@@ -36,7 +36,7 @@
 ---
 
 ## DOWNLOADS
-
+<!--
 ### Latest Version `(password at the bottom)`
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/Bypass captive portal with clear voucher.zip" download>Bypass captive portal w/ Clear Voucher</a> || 
@@ -57,7 +57,7 @@
 
 || <a href="https://raw.githubusercontent.com/RMBDon/JuanfiMessengerChat/main/loyalty.zip" download>Fixed Unliloop Loyalty Page</a> ||
 
-
+-->
 
 ---
 
